@@ -54,7 +54,7 @@ const Page = () => {
         </section>
         <section
           id="nos-realisations"
-          nos-realisations
+          // nos-realisations
           className="EventsContainer"
         >
           <h2 className="Title">Nos réalisations</h2>
