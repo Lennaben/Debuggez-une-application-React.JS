@@ -155,7 +155,7 @@ const Page = () => {
             sportives et culturelles, des événements professionnels
           </p>
         </div>
-      </footer>
+      </footer >
     </>
   )
 }
