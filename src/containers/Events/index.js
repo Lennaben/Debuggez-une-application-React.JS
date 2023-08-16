@@ -8,7 +8,7 @@ import ModalEvent from "../ModalEvent";
 import "./style.css";
 
 const PER_PAGE = 9;
-// sup de la paginations, creation du filter type 
+// paginations a ete supprimer , creation du filter type 
 
 const EventList = () => {
   const { data, error } = useData();
