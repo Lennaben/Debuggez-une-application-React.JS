@@ -1,34 +1,35 @@
-import { useState } from "react";
-import EventCard from "../../components/EventCard";
-import Select from "../../components/Select";
-import { useData } from "../../contexts/DataContext";
-import Modal from "../Modal";
-import ModalEvent from "../ModalEvent";
+import { useState } from "react"
+import EventCard from "../../components/EventCard"
+import Select from "../../components/Select"
+import { useData } from "../../contexts/DataContext"
+import Modal from "../Modal"
+import ModalEvent from "../ModalEvent"
 
-import "./style.css";
+import "./style.css"
 
-const PER_PAGE = 9;
-// paginations a ete supprimer , creation du filter type 
+const PER_PAGE = 9
+// paginations a ete supprimer , creation du filter type
 
 const EventList = () => {
-  const { data, error } = useData();
-  const [type, setType] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
- const filteredEvents = ((!type ? data?.events : data?.events) || []).filter(
-   (event) => {
-     if (type !== null && type !== undefined) {
-       return event.type === type
-     }
-     return true
-   }
- )
+  const { data, error } = useData()
+  const [type, setType] = useState()
+  const [currentPage, setCurrentPage] = useState(1)
+  const filteredEvents = ((!type ? data?.events : data?.events) || []).filter(
+    // methode filter + condition du filter
+    (event) => {
+      if (type !== null && type !== undefined) {
+        return event.type === type
+      }
+      return true
+    }
+  )
   const changeType = (evtType) => {
-    setCurrentPage(1);
-    setType(evtType);
-  };
-  // ceil retour de la valeur supperieur 
-  const pageNumber = Math.ceil((filteredEvents?.length || 1) / PER_PAGE);
-  const typeList = new Set(data?.events.map((event) => event.type));
+    setCurrentPage(1)
+    setType(evtType)
+  }
+  // ceil retour de la valeur supperieur
+  const pageNumber = Math.ceil((filteredEvents?.length || 1) / PER_PAGE)
+  const typeList = new Set(data?.events.map((event) => event.type))
   return (
     <>
       {error && <div>An error occured</div>}
@@ -70,6 +71,6 @@ const EventList = () => {
       )}
     </>
   )
-};
+}
 
-export default EventList;
+export default EventList

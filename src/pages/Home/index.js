@@ -1,21 +1,23 @@
-import Menu from "../../containers/Menu";
-import ServiceCard from "../../components/ServiceCard";
-import EventCard from "../../components/EventCard";
-import PeopleCard from "../../components/PeopleCard";
+import Menu from "../../containers/Menu"
+import ServiceCard from "../../components/ServiceCard"
+import EventCard from "../../components/EventCard"
+import PeopleCard from "../../components/PeopleCard"
 
-import "./style.scss";
-import EventList from "../../containers/Events";
-import Slider from "../../containers/Slider";
-import Logo from "../../components/Logo";
-import Icon from "../../components/Icon";
-import Form from "../../containers/Form";
-import Modal from "../../containers/Modal";
-import { useData } from "../../contexts/DataContext";
+import "./style.scss"
+import EventList from "../../containers/Events"
+import Slider from "../../containers/Slider"
+import Logo from "../../components/Logo"
+import Icon from "../../components/Icon"
+import Form from "../../containers/Form"
+import Modal from "../../containers/Modal"
+import { useData } from "../../contexts/DataContext"
 
 const Page = () => {
-  const {last} = useData()
+  const { last } = useData()
+
+  console.log(last)
   return (
-    // const last 
+    // const last
     <>
       <header>
         <Menu />
@@ -119,13 +121,15 @@ const Page = () => {
       <footer className="row">
         <div className="col presta">
           <h3>Notre derniére prestation</h3>
-          <EventCard
-            imageSrc={last?.cover}
-            title={last?.title}
-            date={new Date(last?.date)}
-            small
-            label="boom"
-          />
+          {last && (
+            <EventCard
+              imageSrc={last?.cover}
+              title={last?.title}
+              date={new Date(last?.date)}
+              small
+              label="boom"
+            />
+          )}
         </div>
         <div className="col contact">
           <h3>Contactez-nous</h3>
@@ -156,9 +160,9 @@ const Page = () => {
             sportives et culturelles, des événements professionnels
           </p>
         </div>
-      </footer >
+      </footer>
     </>
   )
 }
 
-export default Page;
+export default Page
