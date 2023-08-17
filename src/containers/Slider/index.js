@@ -53,7 +53,7 @@ const Slider = () => {
                   key={`${event.id}`}
                   type="radio"
                   name="radio-button"
-                  // si l'image est à la même position que l'index alors checked
+                  // si l'image est à la même position que l'index alors checked = ok 
                   checked={index === radioIdx}
                 />
               ))}

@@ -8,7 +8,7 @@ import ModalEvent from "../ModalEvent"
 import "./style.css"
 
 const PER_PAGE = 9
-// paginations a ete supprimer , creation du filter type
+// paginations a ete supprimer de filteredEvents, et delpacé dans l'appel de cette fonction a l'interieur de la methode slice ligne 46. 
 
 const EventList = () => {
   const { data, error } = useData()
@@ -42,6 +42,8 @@ const EventList = () => {
             selection={Array.from(typeList)}
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
+
+          {/* method slice  si je suis a la page 1 grace au slice il me retorune de l'index 0 a l'index 9 currentPage  - 1 x par 9  */}
           <div id="events" className="ListContainer">
             {filteredEvents
               .slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE)

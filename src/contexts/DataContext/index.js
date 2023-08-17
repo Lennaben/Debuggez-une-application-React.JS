@@ -28,6 +28,7 @@ export const DataProvider = ({ children }) => {
   }, []);
   // 
    const events = data?.events
+  //  const last declaré pour l'image du footer, uniquement l'element 0 
    const last = events?.sort((evtA, evtB) =>
      new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
    )[0]

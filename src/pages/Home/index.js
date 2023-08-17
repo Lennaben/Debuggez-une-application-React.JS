@@ -14,6 +14,7 @@ import { useData } from "../../contexts/DataContext"
 
 const Page = () => {
   const { last } = useData()
+  // const last n'as pas ete declaceé dans contexte donc on l'as rajouter 
 
   console.log(last)
   return (
